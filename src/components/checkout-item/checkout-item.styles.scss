@@ -22,12 +22,25 @@
     width: 23%;
   }
 
-  .quantity {
+  .quantity,
+  .price {
     padding-left: 20px;
   }
 
+  .quantity {
+    display: flex;
+
+    .arrow {
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+    }
+  }
+
   .remove-button {
-    padding-left: 12px;
+    padding-left: 20px;
     cursor: pointer;
   }
 }
