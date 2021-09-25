@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import CollectionItem from '../collection-item/collection-item.component';
 
@@ -9,19 +9,25 @@ import {
   PreviewContainer
 } from './collection-preview.styles';
 
-const CollectionPreview = ({ title, items, history, match, routeName }) => (
-  <CollectionPreviewContainer>
-    <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>
-      {title.toUpperCase()}
-    </TitleContainer>
-    <PreviewContainer>
-      {items
-        .filter((item, idx) => idx < 4)
-        .map(item => (
-          <CollectionItem key={item.id} item={item} />
-        ))}
-    </PreviewContainer>
-  </CollectionPreviewContainer>
-);
+const CollectionPreview = ({ title, items, routeName }) => {
+  
+  const location = useLocation();
+  let history = useHistory();
 
-export default withRouter(CollectionPreview);
+  return (
+    <CollectionPreviewContainer>
+      <TitleContainer onClick={() => history.push(`${location.pathname}/${routeName}`)}>
+        {title.toUpperCase()}
+      </TitleContainer>
+      <PreviewContainer>
+        {items
+          .filter((item, idx) => idx < 4)
+          .map(item => (
+            <CollectionItem key={item.id} item={item} />
+          ))}
+      </PreviewContainer>
+    </CollectionPreviewContainer>
+  );
+}
+
+export default CollectionPreview;
