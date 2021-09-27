@@ -27,7 +27,7 @@ jobs:
         node-version: 16.x
      - run: |
           npm i -D
-          npm run build |
+          npm run build 
 
      - name: Upload artifact
        uses: actions/upload-artifact@master
