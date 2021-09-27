@@ -26,9 +26,9 @@ jobs:
        with: 
         node-version: 16.x
      - run: |
-       yarn install 
-       yarn build
-      
+          yarn install
+          yarn build |
+
      - name: Upload artifact
        uses: actions/upload-artifact@master
        with:
