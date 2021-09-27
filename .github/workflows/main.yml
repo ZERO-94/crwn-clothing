@@ -48,7 +48,6 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: build
-          path: build
       # Runs a single command using the runners shell
       - id: deploy
         uses: google-github-actions/deploy-appengine@main
